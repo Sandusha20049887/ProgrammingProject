@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Finder</title>
+</head>
+<body>
+    <h1>Garage Finder</h1>
+    
+    <!-- Form to add a new post -->
+    <h2>Add a Post</h2>
+    <form id="postForm">
+        <label for="vehicleMake">Vehicle Make:</label>
+        <input type="text" id="vehicleMake" name="vehicleMake" required><br><br>
+        
+        <label for="vehicleModel">Vehicle Model:</label>
+        <input type="text" id="vehicleModel" name="vehicleModel" required><br><br>
+        
+        <label for="faultDescription">Fault Description:</label>
+        <input type="text" id="faultDescription" name="faultDescription" required><br><br>
+        
+        <label for="garageName">Garage Name:</label>
+        <input type="text" id="garageName" name="garageName" required><br><br>
+        
+        <label for="garageLocation">Garage Location:</label>
+        <input type="text" id="garageLocation" name="garageLocation" required><br><br>
+        
+        <label for="garageContact">Garage Contact Number:</label>
+        <input type="text" id="garageContact" name="garageContact" required><br><br>
+        
+        <button type="submit">Add Post</button>
+    </form>
+    
+    <!-- Section to display posts -->
+    <h2>Posts</h2>
+    <div id="posts"></div>
+</body>
+</html>
