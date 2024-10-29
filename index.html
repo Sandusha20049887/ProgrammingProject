@@ -13,48 +13,86 @@
     <h1 class="text-center">Garage Mate</h1>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3">
+            <div class="col-4">
                 <!-- Form to add a new post -->
                 <h2>Add a Post</h2>
                 <form id="postForm">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-6">
                             <label for="make">Vehicle Make:</label>
                         </div>
-                        <div class="col-8">
-                            <input type="text" id="make" name="make" required><br>
+                        <div class="col-6">
+                            <input type="text" class="w-100" id="make" name="make" required>
                         </div>
                     </div>
-
-                    <label for="model">Vehicle Model:</label>
-                    <input type="text" id="model" name="model" required><br>
-
-                    <label for="year">Year Of Manufacture:</label>
-                    <input type="text" id="year" name="year" required><br>
-
-                    <label for="faultDescription">Fault Description:</label>
-                    <input type="text" id="faultDescription" name="faultDescription" required><br>
-
-                    <label for="garageName">Garage Name:</label>
-                    <input type="text" id="garageName" name="garageName" required><br>
-
-                    <label for="garageAddress">Garage Location:</label>
-                    <input type="text" id="garageAddress" name="garageAddress"><br>
-
-                    <label for="contactNo">Garage Contact Number:</label>
-                    <input type="text" id="contactNo" name="contactNo" required><br>
-
-                    <label for="status">Status:</label>
-                    <select class="form-control" id="status" name="status" required>
-                        <option value="Unresolved">Unresolved</option>
-                        <option value="progressing">Progressing</option>
-                        <option value="resolved">Resolved</option>
-                    </select>
-                    <br>
-                    <button id="addPost" class="btn bg-danger">Add Post</button>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="model">Vehicle Model:</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="w-100" id="model" name="model" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="year">Year Of Manufacture:</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="w-100" id="year" name="year" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="faultDescription">Fault Description:</label>
+                        </div>
+                        <div class="col-6">
+                            <textarea type="text" class="w-100" id="faultDescription" name="faultDescription" required></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="garageName">Garage Name:</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="w-100" id="garageName" name="garageName" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="garageAddress">Garage Address:</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="w-100" id="garageAddress" name="garageAddress">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="contactNo">Garage Contact Number:</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" class="w-100" id="contactNo" name="contactNo" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="status">Status:</label>
+                        </div>
+                        <div class="col-6">
+                            <select class="form-control" id="status" name="status" required>
+                                <option value="Unresolved">Unresolved</option>
+                                <option value="progressing">Progressing</option>
+                                <option value="resolved">Resolved</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-right mt-2">
+                            <button id="addPost" class="btn bg-danger">Add Post</button>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <div class="col-7">
+            <div class="col-8">
                 <!-- Section to display posts -->
                 <h2>Posts</h2>
                 <div id="posts">
