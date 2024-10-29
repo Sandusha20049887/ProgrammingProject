@@ -2,7 +2,7 @@
 $(document).ready(function() {
 
     $.ajax({
-        url: 'http://localhost:8000/getPost', // Replace with your API URL
+        url: 'http://localhost:8000/getPost', 
         type: 'GET',
         success: function(data) {
             appendPosts(data);
@@ -15,7 +15,18 @@ $(document).ready(function() {
 
     $('#addPost').click(function(e){
         e.preventDefault();
-        alert("clicked");
+
+        var formData = {
+            make: $('#make').val(),
+            model: $('#model').val(),
+            year:$('#year').val(),
+            faultDescription: $('#faultDescription').val(),
+            garageName: $('#garageName').val(),
+            garageAddress: $('#garageAddress').val(),
+            contactNo: $('#contactNo').val(),
+            status:$('#status').val()
+        };
+   console.log(formData);
     });
 });
 

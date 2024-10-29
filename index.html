@@ -17,24 +17,40 @@
                 <!-- Form to add a new post -->
                 <h2>Add a Post</h2>
                 <form id="postForm">
-                    <label for="vehicleMake">Vehicle Make:</label>
-                    <input type="text" id="vehicleMake" name="vehicleMake" required><br><br>
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="make">Vehicle Make:</label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" id="make" name="make" required><br>
+                        </div>
+                    </div>
 
-                    <label for="vehicleModel">Vehicle Model:</label>
-                    <input type="text" id="vehicleModel" name="vehicleModel" required><br><br>
+                    <label for="model">Vehicle Model:</label>
+                    <input type="text" id="model" name="model" required><br>
+
+                    <label for="year">Year Of Manufacture:</label>
+                    <input type="text" id="year" name="year" required><br>
 
                     <label for="faultDescription">Fault Description:</label>
-                    <input type="text" id="faultDescription" name="faultDescription" required><br><br>
+                    <input type="text" id="faultDescription" name="faultDescription" required><br>
 
                     <label for="garageName">Garage Name:</label>
-                    <input type="text" id="garageName" name="garageName" required><br><br>
+                    <input type="text" id="garageName" name="garageName" required><br>
 
-                    <label for="garageLocation">Garage Location:</label>
-                    <input type="text" id="garageLocation" name="garageLocation" required><br><br>
+                    <label for="garageAddress">Garage Location:</label>
+                    <input type="text" id="garageAddress" name="garageAddress"><br>
 
-                    <label for="garageContact">Garage Contact Number:</label>
-                    <input type="text" id="garageContact" name="garageContact" required><br><br>
+                    <label for="contactNo">Garage Contact Number:</label>
+                    <input type="text" id="contactNo" name="contactNo" required><br>
 
+                    <label for="status">Status:</label>
+                    <select class="form-control" id="status" name="status" required>
+                        <option value="Unresolved">Unresolved</option>
+                        <option value="progressing">Progressing</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+                    <br>
                     <button id="addPost" class="btn bg-danger">Add Post</button>
                 </form>
             </div>
@@ -47,4 +63,5 @@
         </div>
     </div>
 </body>
+
 </html>
