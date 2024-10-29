@@ -1,32 +1,44 @@
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     $.ajax({
-        url: 'http://localhost:8000/getPost', 
+        url: 'http://localhost:8000/getPost',
         type: 'GET',
-        success: function(data) {
+        success: function (data) {
             appendPosts(data);
         },
-        error: function(error) {
+        error: function (error) {
             console.error('Error:', error);
         }
     });
 
 
-    $('#addPost').click(function(e){
+    $('#addPost').click(function (e) {
         e.preventDefault();
 
         var formData = {
             make: $('#make').val(),
             model: $('#model').val(),
-            year:$('#year').val(),
+            year: $('#year').val(),
             faultDescription: $('#faultDescription').val(),
             garageName: $('#garageName').val(),
             garageAddress: $('#garageAddress').val(),
             contactNo: $('#contactNo').val(),
-            status:$('#status').val()
+            status: $('#status').val()
         };
-   console.log(formData);
+        console.log(formData);
+        $.ajax({
+            url: 'http://localhost:8000/addPost',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(formData),
+            success: function (resp) {
+                console.log(resp);
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
     });
 });
 
