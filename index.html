@@ -1,44 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Garage Mate</title>
-   
-    <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”rel=”nofollow” integrity=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I” crossorigin=”anonymous”>
-    <script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </head>
+
 <body>
-    <h1>Garage Mate</h1>
-    
-    <!-- Form to add a new post -->
-    <h2>Add a Post</h2>
-    <form id="postForm">
-        <label for="vehicleMake">Vehicle Make:</label>
-        <input type="text" id="vehicleMake" name="vehicleMake" required><br><br>
-        
-        <label for="vehicleModel">Vehicle Model:</label>
-        <input type="text" id="vehicleModel" name="vehicleModel" required><br><br>
-        
-        <label for="faultDescription">Fault Description:</label>
-        <input type="text" id="faultDescription" name="faultDescription" required><br><br>
-        
-        <label for="garageName">Garage Name:</label>
-        <input type="text" id="garageName" name="garageName" required><br><br>
-        
-        <label for="garageLocation">Garage Location:</label>
-        <input type="text" id="garageLocation" name="garageLocation" required><br><br>
-        
-        <label for="garageContact">Garage Contact Number:</label>
-        <input type="text" id="garageContact" name="garageContact" required><br><br>
-        
-        <button id="addPost" class="btn">Add Post</button>
-    </form>
-    
-    <!-- Section to display posts -->
-    <h2>Posts</h2>
-    <div id="posts"></div>
+    <h1 class="text-center">Garage Mate</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3">
+                <!-- Form to add a new post -->
+                <h2>Add a Post</h2>
+                <form id="postForm">
+                    <label for="vehicleMake">Vehicle Make:</label>
+                    <input type="text" id="vehicleMake" name="vehicleMake" required><br><br>
+
+                    <label for="vehicleModel">Vehicle Model:</label>
+                    <input type="text" id="vehicleModel" name="vehicleModel" required><br><br>
+
+                    <label for="faultDescription">Fault Description:</label>
+                    <input type="text" id="faultDescription" name="faultDescription" required><br><br>
+
+                    <label for="garageName">Garage Name:</label>
+                    <input type="text" id="garageName" name="garageName" required><br><br>
+
+                    <label for="garageLocation">Garage Location:</label>
+                    <input type="text" id="garageLocation" name="garageLocation" required><br><br>
+
+                    <label for="garageContact">Garage Contact Number:</label>
+                    <input type="text" id="garageContact" name="garageContact" required><br><br>
+
+                    <button id="addPost" class="btn bg-danger">Add Post</button>
+                </form>
+            </div>
+            <div class="col-7">
+                <!-- Section to display posts -->
+                <h2>Posts</h2>
+                <div id="posts">
+                    <div class="list-group-item">
+                        <h5>Vehicle Make: Toyota</h5>
+                        <p>Vehicle Model: Corolla</p>
+                        <p>Fault Description: Engine Noise</p>
+                        <p>Garage Name: Super Garage</p>
+                        <p>Garage Location: 123 Main St</p>
+                        <p>Garage Contact: 123-456-7890</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
