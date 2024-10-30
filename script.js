@@ -2,7 +2,8 @@
 $(document).ready(function () {
 
     $.ajax({
-        url: 'http://localhost:8000/getPost',
+        //url: 'http://localhost:8000/getPost',
+        url:'https://moonlit-skeleton-97j65qrwrrj6f7pjq-8000.app.github.dev/getPost',
         type: 'GET',
         success: function (data) {
             appendPosts(data);
