@@ -9,7 +9,7 @@ $(document).ready(function () {
             appendPosts(data);
         },
         error: function (error) {
-            console.error('Error:', error);
+            console.log('Error:', error);
         }
     });
 
@@ -37,7 +37,7 @@ $(document).ready(function () {
                 console.log(resp);
             },
             error: function (error) {
-                console.error('Error:', error);
+                console.log('Error:', error);
             }
         });
     });
