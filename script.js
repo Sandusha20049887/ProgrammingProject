@@ -57,6 +57,10 @@ $(document).ready(function () {
         sessionStorage.removeItem("userid");
         window.location.href = "http://127.0.0.1:5500/login.html"; 
     })
+
+    $('#home').click(function () {
+        window.location.href = "http://127.0.0.1:5500/index.html"; 
+    })
 });
 
 function appendPosts(posts) {

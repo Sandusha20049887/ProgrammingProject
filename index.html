@@ -7,6 +7,11 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <style>
+        h1:hover {
+            cursor: pointer
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +22,7 @@
                     Welcome, <span id="uname" class="text-light"></span>
                 </p>
             </div>
-            <div class="col-4">
+            <div class="col-4" id="home">
                 <h1 class="text-center text-light">Garage Mate</h1>
             </div>
             <div class="col-4 text-right">
@@ -26,91 +31,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4">
-                <!-- Form to add a new post -->
-                <h2>Add a Post</h2>
-                <form id="postForm">
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="make">Vehicle Make:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" class="w-100" id="make" name="make" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="model">Vehicle Model:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" class="w-100" id="model" name="model" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="year">Year Of Manufacture:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" class="w-100" id="year" name="year" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="faultDescription">Fault Description:</label>
-                        </div>
-                        <div class="col-6">
-                            <textarea type="text" class="w-100" id="faultDescription" name="faultDescription"
-                                required></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="garageName">Garage Name:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" class="w-100" id="garageName" name="garageName" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="garageAddress">Garage Address:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" class="w-100" id="garageAddress" name="garageAddress">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="contactNo">Garage Contact Number:</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" class="w-100" id="contactNo" name="contactNo" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="status">Status:</label>
-                        </div>
-                        <div class="col-6">
-                            <select class="form-control" id="status" name="status" required>
-                                <option value="Unresolved">Unresolved</option>
-                                <option value="progressing">Progressing</option>
-                                <option value="resolved">Resolved</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 text-right mt-2">
-                            <button id="addPost" class="btn bg-danger">Add Post</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-8">
+           <div class="col-3">
+           </div>
+            <div class="col-6">
                 <!-- Section to display posts -->
-                <h2>Posts</h2>
                 <div id="posts">
                 </div>
+            </div>
+            <div class="col-3">
             </div>
         </div>
     </div>
