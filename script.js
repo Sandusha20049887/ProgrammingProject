@@ -24,7 +24,8 @@ $(document).ready(function () {
 
     $('#addPost').click(function (e) {
         e.preventDefault();
-
+        const today = new Date();
+        
         const formData = {
             make: $('#make').val(),
             model: $('#model').val(),
@@ -33,7 +34,9 @@ $(document).ready(function () {
             garageName: $('#garageName').val(),
             garageAddress: $('#garageAddress').val(),
             contactNo: $('#contactNo').val(),
-            status: $('#status').val()
+            status: $('#status').val(),
+            userId: userId,
+            datePosted: today.toISOString().split('T')[0]
         };
         console.log(formData);
         $.ajax({
