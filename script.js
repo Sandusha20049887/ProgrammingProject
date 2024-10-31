@@ -2,33 +2,28 @@
 $(document).ready(function () {
 
     const userId = sessionStorage.getItem("userid");
-    console.log(userId);
+
     $('#uname').append(userId);
     if (userId) {
-
-        $.ajax({
-            url: 'http://localhost:8000/getPost',
-            //url:'https://moonlit-skeleton-97j65qrwrrj6f7pjq-8000.app.github.dev/getPost',
-            type: 'GET',
-            success: function (data) {
-                appendPosts(data);
-            },
-            error: function (error) {
-                console.log('Error:', error);
-            }
-        });
+        getPosts();
     } else {
-        window.location.replace("http://127.0.0.1:5500/login.html");
+        window.location.replace("/login.html");
+    }
+
+    if (userId) {
+        getUserPosts(userId)
+    } else {
+        window.location.replace("/login.html");
     }
 
     $('#userPost').click(function () {
-        window.location.href = "http://127.0.0.1:5500/userPost.html"; 
+        window.location.href = "/userPost.html";
     });
-    
+
     $('#addPost').click(function (e) {
         e.preventDefault();
         const today = new Date();
-        
+
         const formData = {
             make: $('#make').val(),
             model: $('#model').val(),
@@ -48,7 +43,8 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(formData),
             success: function (resp) {
-                console.log(resp);
+                alert(resp);
+                getUserPosts(userId);
             },
             error: function (error) {
                 console.log('Error:', error);
@@ -58,13 +54,50 @@ $(document).ready(function () {
 
     $('#logout').click(function () {
         sessionStorage.removeItem("userid");
-        window.location.href = "http://127.0.0.1:5500/login.html"; 
+        window.location.href = "http://127.0.0.1:5500/login.html";
     })
 
     $('#home').click(function () {
-        window.location.href = "http://127.0.0.1:5500/index.html"; 
+        window.location.href = "http://127.0.0.1:5500/index.html";
+    });
+
+    $('.updatePost').click(function (e) {
+        alert("update clicked");
+        const postid = $(this).data('id');
+        console.log(postid);
+    })
+
+    $('.deletePost').click(function (e) {
+        const postid = e.data('id');
+        console.log(postid);
     })
 });
+
+function getPosts() {
+    $.ajax({
+        url: 'http://localhost:8000/getPost',
+        type: 'GET',
+        success: function (data) {
+            appendPosts(data);
+        },
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    });
+}
+
+function getUserPosts(userId) {
+    $.ajax({
+        url: 'http://localhost:8000/getPost/' + userId,
+        type: 'GET',
+        success: function (data) {
+            appendUserPosts(data);
+        },
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    });
+}
 
 function appendPosts(posts) {
     // Clear existing posts
@@ -80,5 +113,30 @@ function appendPosts(posts) {
                         <p>Contact No : ${post.contactNo}</p>
                     </div>`;
         $('#posts').append(postItem);
+    });
+}
+
+function appendUserPosts(posts) {
+    // Clear existing posts
+    $('#userposts').empty();
+    //loop thorugh the records
+    posts.forEach(post => {
+        const postItem = `<div class="list-group-item mt-1">
+                        <div class="row">
+                            <div class="col-6">
+                                <h5>${post.make} ${post.model}</h5>
+                            </div>
+                            <div class="col-6 text-right">
+                                <button class="updatePost btn btn-primary" data-id=${post._id}> Update</button>
+                                <button class="deletePost btn btn-warning" data-id=${post._id}> Delete</button>
+                            </div>
+                        </div>
+                        <p>Year of manufacture : ${post.year}</p>
+                        <p>Fault Description : ${post.faultDescription}</p>
+                        <p>Garage Name : ${post.garageName}</p>
+                        <p>Address : ${post.garageAddress}</p>
+                        <p>Contact No : ${post.contactNo}</p>
+                    </div>`;
+        $('#userposts').append(postItem);
     });
 }
