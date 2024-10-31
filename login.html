@@ -15,30 +15,67 @@
 </head>
 
 <body>
+     <!------------ Login form ------------------>
     <section class="login">
         <div class="container-fluid">
             <div class="row h-100" style="margin-top: 120px;">
                 <div class="col-4"></div>
                 <div class="col-4" style="background-color: black">
                     <h1 class="text-center m-5 text-light">Garage Mate</h1>
-                    <div class="form-outline text-center">
-                        <label class="form-label text-light" for="email">Email</label>
-                        <input type="email" id="email" class="form-control" placeholder="Enter email" />
-                    </div>
-                    <div class="form-outline mt-2 text-center">
-                        <label class="form-label text-light" for="password">Password</label>
-                        <input type="password" id="password" class="form-control" placeholder="Enter password" />
-                    </div>
-                    <div class="text-center mt-4">
-                        <button type="button" id="login" class="btn btn-primary">Login</button>
-                        <p class="small mt-2 mb-5 text-light">
-                            Don't have an account?
-                            <span class="text-primary text-decoration-underline">Register</span>
-                        </p>
-                    </div>
-                    <div class="col-4"></div>
+                    <form id="loginform">
+                        <div class="form-outline text-center">
+                            <label class="form-label text-light" for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter email" required/>
+                        </div>
+                        <div class="form-outline mt-2 text-center">
+                            <label class="form-label text-light" for="password">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Enter password" required/>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="button" id="login" class="btn btn-primary">Login</button>
+                            <p class="small mt-2 mb-5 text-light">
+                                Don't have an account?
+                                <span id="registerpage" class="text-primary text-decoration-underline">Register</span>
+                            </p>
+                        </div>
+                    </form>
                 </div>
+                <div class="col-4"></div>
             </div>
+        </div>
+    </section>
+    <!------------ Registration form ------------------>
+    <section class="register" style="display: none;">
+        <div class="container-fluid">
+            <div class="row h-100" style="margin-top: 120px;">
+                <div class="col-4"></div>
+                <div class="col-4" style="background-color: black">
+                    <h1 class="text-center m-5 text-light">Garage Mate</h1>
+                    <form id="loginform">
+                        <div class="form-outline mt-2 text-center">
+                            <label class="form-label text-light" for="name">Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter password" required/>
+                        </div>
+                        <div class="form-outline text-center">
+                            <label class="form-label text-light" for="email">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter email" required/>
+                        </div>
+                        <div class="form-outline mt-2 text-center">
+                            <label class="form-label text-light" for="password">Password</label>
+                            <input type="password" id="password" class="form-control" placeholder="Enter password" required/>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button type="button" id="register" class="btn btn-primary">Register</button>
+                            <p class="small mt-2 mb-5 text-light">
+                                Already have an account?
+                                <span id="loginpage" class="text-primary text-decoration-underline">Login</span>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
     </section>
 </body>
 

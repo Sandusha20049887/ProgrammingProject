@@ -1,5 +1,15 @@
 $(document).ready(function () {
 
+    $('#registerpage').click(function () {
+        $('.login').hide();
+        $('.register').show();
+    });
+
+    $('#loginpage').click(function () {
+        $('.register').hide();
+        $('.login').show();
+    });
+
     $('#login').click(function () {
 
         const credentials = {
