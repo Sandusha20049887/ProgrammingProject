@@ -7,19 +7,39 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
+    <style>
+        span:hover {
+            cursor: pointer
+        }
+    </style>
 </head>
 
-<body> 
-    <h1 class="text-center">Garage Mate</h1>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-8">
-                <img src="/images/background.gif" class="w-100">
-              </div>
-        </div>
-        <div class="col-md-4">
-
-        </div>
-    </div> 
+<body>
+    <section class="login">
+        <div class="container-fluid">
+            <div class="row h-100" style="margin-top: 120px;">
+                <div class="col-4"></div>
+                <div class="col-4" style="background-color: black">
+                    <h1 class="text-center m-5 text-light">Garage Mate</h1>
+                    <div class="form-outline text-center">
+                        <label class="form-label text-light" for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter email" />
+                    </div>
+                    <div class="form-outline mt-2 text-center">
+                        <label class="form-label text-light" for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter password" />
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="button" class="btn btn-primary">Login</button>
+                        <p class="small mt-2 mb-5 text-light">
+                            Don't have an account?
+                            <span class="text-primary text-decoration-underline">Register</span>
+                        </p>
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+    </section>
 </body>
+
 </html>
