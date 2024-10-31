@@ -22,8 +22,9 @@ $(document).ready(function () {
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(credentials),
-            success: function (userId) {
-                sessionStorage.setItem("userid", userId);
+            success: function (resp) {
+                console.log(resp.userId);
+                sessionStorage.setItem("userid", resp.userId);
                 window.location.href = "/index.html";
             },
             error: function (error) {
@@ -45,8 +46,8 @@ $(document).ready(function () {
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(credentials),
-            success: function (userId) {
-                sessionStorage.setItem("userid", userId);
+            success: function (resp) {
+                sessionStorage.setItem("userid", resp.userId);
                 alert('Successfully registered!');
             },
             error: function (error) {

@@ -11,18 +11,20 @@
 
 <body>
     <div class="container-fluid">
-    <div class="row bg-dark">
-        <div class="col-4">
-            <button class="btn btn-success">Home</button>
+        <div class="row" style="background-color: black;">
+            <div class="col-4">
+                <p class="small mt-3 text-light">
+                    Welcome, <span id="uname" class="text-light"></span>
+                </p>
+            </div>
+            <div class="col-4">
+                <h1 class="text-center text-light">Garage Mate</h1>
+            </div>
+            <div class="col-4 text-right">
+                <button class="btn btn-info text-right mt-2">Add or Update Post</button>
+                <button id="logout" class="btn btn-danger mt-2">Logout</button>
+            </div>
         </div>
-        <div class="col-4">
-            <h1 class="text-center">Garage Mate</h1>
-        </div>
-        <div class="col-4 text-right">
-            <button class="btn btn-info text-right">Add or Update Post</button>
-            <button id="logout" class="btn btn-danger">Logout</button>
-        </div>
-    </div>
         <div class="row">
             <div class="col-4">
                 <!-- Form to add a new post -->
@@ -57,7 +59,8 @@
                             <label for="faultDescription">Fault Description:</label>
                         </div>
                         <div class="col-6">
-                            <textarea type="text" class="w-100" id="faultDescription" name="faultDescription" required></textarea>
+                            <textarea type="text" class="w-100" id="faultDescription" name="faultDescription"
+                                required></textarea>
                         </div>
                     </div>
                     <div class="row">
