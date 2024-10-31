@@ -21,7 +21,10 @@ $(document).ready(function () {
         window.location.replace("http://127.0.0.1:5500/login.html");
     }
 
-
+    $('#userPost').click(function () {
+        window.location.href = "http://127.0.0.1:5500/userPost.html"; 
+    });
+    
     $('#addPost').click(function (e) {
         e.preventDefault();
         const today = new Date();
