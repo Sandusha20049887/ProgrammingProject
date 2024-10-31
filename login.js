@@ -12,18 +12,13 @@ $(document).ready(function () {
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(credentials),
-            success: function (resp) {
-                console.log(resp);
+            success: function (userId) {
+                sessionStorage.setItem("userid", userId);
+                window.location.href = "/index.html";
             },
             error: function (error) {
                 console.log('Error:', error.responseText);
             }
         });
-    })
-
-    //sessionStorage.setItem("userid", "123");
-    $('#logout').click(function () {
-        sessionStorage.removeItem("userid");
-        $(this).redirect("/login.html");
     })
 })
