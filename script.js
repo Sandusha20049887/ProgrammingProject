@@ -3,6 +3,8 @@ $(document).ready(function () {
 
     const userId = sessionStorage.getItem("userid");
 
+    
+
     $('#uname').append(userId);
     if (userId) {
         getPosts();
@@ -48,6 +50,7 @@ $(document).ready(function () {
             },
             error: function (error) {
                 console.log('Error:', error);
+                alert('Err - Record not added !');
             }
         });
     });
@@ -61,16 +64,14 @@ $(document).ready(function () {
         window.location.href = "http://127.0.0.1:5500/index.html";
     });
 
-    $('.updatePost').click(function (e) {
-        alert("update clicked");
-        const postid = $(this).data('id');
-        console.log(postid);
-    })
+    $(this).on('click', '.updatePost', function() {
+        alert("Button clicked!");
+    });
 
-    $('.deletePost').click(function (e) {
-        const postid = e.data('id');
-        console.log(postid);
-    })
+    $(this).on('click', '.deletePost', function() {
+        const postId = $(this).data('id');
+        $(`div[data-id=${postId}]`).remove();
+    });
 });
 
 function getPosts() {
@@ -121,7 +122,7 @@ function appendUserPosts(posts) {
     $('#userposts').empty();
     //loop thorugh the records
     posts.forEach(post => {
-        const postItem = `<div class="list-group-item mt-1">
+        const postItem = `<div class="list-group-item mt-1" data-id=${post._id}>
                         <div class="row">
                             <div class="col-6">
                                 <h5>${post.make} ${post.model}</h5>
