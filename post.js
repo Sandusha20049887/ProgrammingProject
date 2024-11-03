@@ -1,7 +1,23 @@
-$(document).read(function(){
+$(document).read(function () {
 
     const userId = sessionStorage.getItem("userid");
+    const postId = sessionStorage.getItem("postid");
+
     $('#uname').append(userId);
+
+    if (userId) {
+        getUserPosts(userId)
+    } else {
+        window.location.replace("/login.html");
+    }
+
+    if (postId) {
+        $('.addPost').hide();
+        $('.updatePost').show();
+    }else{
+        $('.updatePost').hide();
+        $('.addPost').show();
+    }
 
     $('#addPost').click(function (e) {
         e.preventDefault();
@@ -27,7 +43,7 @@ $(document).read(function(){
             data: JSON.stringify(postDetails),
             success: function (resp) {
                 alert(resp);
-                getUserPosts(userId);
+                //getUserPosts(userId);
             },
             error: function (error) {
                 console.log('Error:', error);
@@ -38,7 +54,7 @@ $(document).read(function(){
 
     $('#updatePost').click(function (e) {
         e.preventDefault();
-        const today = new Date();
+        const postId = $('#postId').val();
 
         const postDetails = {
             make: $('#make').val(),
@@ -53,13 +69,13 @@ $(document).read(function(){
         };
         console.log(postDetails);
         $.ajax({
-            url: 'http://localhost:8000/addPost',
+            url: 'http://localhost:8000/updatePost/' + postId,
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(postDetails),
             success: function (resp) {
                 alert(resp);
-                getUserPosts(userId);
+                //getUserPosts(userId);
             },
             error: function (error) {
                 console.log('Error:', error);
