@@ -26,7 +26,7 @@ $(document).ready(function () {
         e.preventDefault();
         const today = new Date();
 
-        const formData = {
+        const postDetails = {
             make: $('#make').val(),
             model: $('#model').val(),
             year: $('#year').val(),
@@ -38,12 +38,12 @@ $(document).ready(function () {
             userId: userId,
             datePosted: today.toISOString().split('T')[0]
         };
-        console.log(formData);
+        console.log(postDetails);
         $.ajax({
             url: 'http://localhost:8000/addPost',
             type: 'POST',
             contentType: 'application/json',
-            data: JSON.stringify(formData),
+            data: JSON.stringify(postDetails),
             success: function (resp) {
                 alert(resp);
                 getUserPosts(userId);
@@ -70,7 +70,23 @@ $(document).ready(function () {
 
     $(this).on('click', '.deletePost', function() {
         const postId = $(this).data('id');
-        $(`div[data-id=${postId}]`).remove();
+
+        if (confirm("Are you sure?")) {
+            $.ajax({
+                url: 'http://localhost:8000/deletePost/'+postId,
+                type: 'DELETE',
+                contentType: 'application/json',
+                success: function (resp) {
+                    alert(resp);
+                    $(`div[data-id=${postId}]`).remove();
+                },
+                error: function (error) {
+                    console.log('Error:', error);
+                    alert('Err - Record not Deleted !');
+                }
+            });
+        }
+        return false;
     });
 });
 
