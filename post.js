@@ -1,15 +1,16 @@
-$(document).read(function () {
+$(document).ready(function () {
 
     const userId = sessionStorage.getItem("userid");
-    const postId = sessionStorage.getItem("postid");
 
     $('#uname').append(userId);
 
     if (userId) {
-        getUserPosts(userId)
     } else {
         window.location.replace("/login.html");
     }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('postid')
 
     if (postId) {
         $('.addPost').hide();

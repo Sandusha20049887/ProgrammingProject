@@ -18,42 +18,46 @@ $(document).ready(function () {
         window.location.replace("/login.html");
     }
 
+    $('#newPost').click(function () {
+        window.location.href = "/addUpdatePost.html";
+    });
+    
     $('#userPost').click(function () {
         window.location.href = "/userPost.html";
     });
 
-    $('#addPost').click(function (e) {
-        e.preventDefault();
-        const today = new Date();
+    // $('#addPost').click(function (e) {
+    //     e.preventDefault();
+    //     const today = new Date();
 
-        const postDetails = {
-            make: $('#make').val(),
-            model: $('#model').val(),
-            year: $('#year').val(),
-            faultDescription: $('#faultDescription').val(),
-            garageName: $('#garageName').val(),
-            garageAddress: $('#garageAddress').val(),
-            contactNo: $('#contactNo').val(),
-            status: $('#status').val(),
-            userId: userId,
-            datePosted: today.toISOString().split('T')[0]
-        };
-        console.log(postDetails);
-        $.ajax({
-            url: 'http://localhost:8000/addPost',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(postDetails),
-            success: function (resp) {
-                alert(resp);
-                getUserPosts(userId);
-            },
-            error: function (error) {
-                console.log('Error:', error);
-                alert('Err - Record not added !');
-            }
-        });
-    });
+    //     const postDetails = {
+    //         make: $('#make').val(),
+    //         model: $('#model').val(),
+    //         year: $('#year').val(),
+    //         faultDescription: $('#faultDescription').val(),
+    //         garageName: $('#garageName').val(),
+    //         garageAddress: $('#garageAddress').val(),
+    //         contactNo: $('#contactNo').val(),
+    //         status: $('#status').val(),
+    //         userId: userId,
+    //         datePosted: today.toISOString().split('T')[0]
+    //     };
+    //     console.log(postDetails);
+    //     $.ajax({
+    //         url: 'http://localhost:8000/addPost',
+    //         type: 'POST',
+    //         contentType: 'application/json',
+    //         data: JSON.stringify(postDetails),
+    //         success: function (resp) {
+    //             alert(resp);
+    //             getUserPosts(userId);
+    //         },
+    //         error: function (error) {
+    //             console.log('Error:', error);
+    //             alert('Err - Record not added !');
+    //         }
+    //     });
+    // });
 
     $('#logout').click(function () {
         sessionStorage.removeItem("userid");
@@ -65,7 +69,9 @@ $(document).ready(function () {
     });
 
     $(this).on('click', '.updatePost', function() {
-        alert("Button clicked!");
+        
+        const postId = $(this).data('id');
+        window.location.href = "/addUpdatePost.html?postid="+postId;
     });
 
     $(this).on('click', '.deletePost', function() {
