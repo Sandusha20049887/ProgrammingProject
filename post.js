@@ -13,6 +13,10 @@ $(document).ready(function () {
     $('#home').click(function () {
         window.location.href = "/index.html";
     });
+
+    $('#userPost').click(function () {
+        window.location.href = "/userPost.html";
+    });
     
     const urlParams = new URLSearchParams(window.location.search);
     postId = urlParams.get('postid')
