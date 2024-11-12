@@ -10,6 +10,10 @@ $(document).ready(function () {
         window.location.replace("/login.html");
     }
 
+    $('#home').click(function () {
+        window.location.href = "/index.html";
+    });
+    
     const urlParams = new URLSearchParams(window.location.search);
     postId = urlParams.get('postid')
 
