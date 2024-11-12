@@ -1,3 +1,4 @@
+var postId;
 $(document).ready(function () {
 
     const userId = sessionStorage.getItem("userid");
@@ -10,12 +11,13 @@ $(document).ready(function () {
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('postid')
+    postId = urlParams.get('postid')
 
     if (postId) {
         $('.addPost').hide();
         $('.updatePost').show();
-    }else{
+        getPostDetails(postId);
+    } else {
         $('.updatePost').hide();
         $('.addPost').show();
     }
@@ -55,23 +57,24 @@ $(document).ready(function () {
 
     $('#updatePost').click(function (e) {
         e.preventDefault();
-        const postId = $('#postId').val();
+        //const postId = $('#postId').val();
 
         const postDetails = {
-            make: $('#make').val(),
-            model: $('#model').val(),
-            year: $('#year').val(),
-            faultDescription: $('#faultDescription').val(),
-            garageName: $('#garageName').val(),
-            garageAddress: $('#garageAddress').val(),
-            contactNo: $('#contactNo').val(),
-            status: $('#status').val(),
+            _id: postId,
+            make: $('#umake').val(),
+            model: $('#umodel').val(),
+            year: $('#uyear').val(),
+            faultDescription: $('#ufaultDescription').val(),
+            garageName: $('#ugarageName').val(),
+            garageAddress: $('#ugarageAddress').val(),
+            contactNo: $('#ucontactNo').val(),
+            status: $('#ustatus').val(),
             userId: userId
         };
         console.log(postDetails);
         $.ajax({
             url: 'http://localhost:8000/updatePost/' + postId,
-            type: 'POST',
+            type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(postDetails),
             success: function (resp) {
@@ -85,3 +88,23 @@ $(document).ready(function () {
         });
     });
 });
+
+function getPostDetails(postId) {
+    $.ajax({
+        url: 'http://localhost:8000/getPostById/' + postId,
+        type: 'GET',
+        success: function (postDtl) {
+            $("#umake").val(postDtl[0].make); 
+            $("#umodel").val(postDtl[0].model); 
+            $("#uyear").val(postDtl[0].year); 
+            $("#ufaultDescription").val(postDtl[0].faultDescription); 
+            $("#ugarageName").val(postDtl[0].garageName);
+            $("#ugarageAddress").val(postDtl[0].garageAddress); 
+            $("#ucontactNo").val(postDtl[0].contactNo); 
+            $("#ustatus").val(postDtl[0].status);
+        },
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    });
+};
