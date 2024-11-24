@@ -31,10 +31,10 @@
                 <button id="logout" class="btn btn-danger mt-2">Logout</button>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-2">
             <div class="col-3"></div>
             <div class="col-6">
-                <input type="search"/>
+                <input type="text" id="searchAll" class="list-group-item" style="width: inherit;border-radius: 20px;" placeholder="Search here..."/>
             </div>
             <div class="col-3"></div>
         </div>
@@ -44,6 +44,9 @@
             <div class="col-6">
                 <!-- Section to display posts -->
                 <div id="posts">
+                    <div class="" id="no-results" style="display: none">
+                        No results found.
+                      </div>
                 </div>
             </div>
             <div class="col-3">

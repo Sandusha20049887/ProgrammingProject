@@ -3,8 +3,6 @@ $(document).ready(function () {
 
     const userId = sessionStorage.getItem("userid");
 
-    
-
     $('#uname').append(userId);
     if (userId) {
         getPosts();
@@ -25,6 +23,11 @@ $(document).ready(function () {
     $('#userPost').click(function () {
         window.location.href = "/userPost.html";
     });
+
+    $("#searchAll").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        alert(value);
+      });
 
     // $('#addPost').click(function (e) {
     //     e.preventDefault();
@@ -127,7 +130,7 @@ function appendPosts(posts) {
     $('#posts').empty();
     //loop thorugh the records
     posts.forEach(post => {
-        const postItem = `<div class="list-group-item mt-1">
+        const postItem = `<div class="post-box list-group-item mt-1">
                         <h5>${post.make} ${post.model}</h5>
                         <p>Year of manufacture : ${post.year}</p>
                         <p>Fault Description : ${post.faultDescription}</p>
