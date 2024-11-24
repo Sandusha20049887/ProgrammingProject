@@ -26,7 +26,20 @@ $(document).ready(function () {
 
     $("#searchAll").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        alert(value);
+        //alert(value);
+        var noResults = true;
+        $(".post-box").filter(function () {
+          var isVisible = $(this).text().toLowerCase().indexOf(value) > -1;
+          $(this).toggle(isVisible);
+          if (isVisible) {
+            noResults = false;
+          }
+        });
+        if (noResults) {
+          $("#no-results").show();
+        } else {
+          $("#no-results").hide();
+        }
       });
 
     // $('#addPost').click(function (e) {
