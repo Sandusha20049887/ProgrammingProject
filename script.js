@@ -95,7 +95,8 @@ $(document).ready(function () {
 
         if (confirm("Are you sure?")) {
             $.ajax({
-                url: 'http://localhost:8000/deletePost/'+postId,
+                // url: 'http://localhost:8000/deletePost/'+postId,
+                url: 'https://20.77.44.142/api/deletePost/'+postId,
                 type: 'DELETE',
                 contentType: 'application/json',
                 success: function (resp) {
@@ -114,7 +115,8 @@ $(document).ready(function () {
 
 function getPosts() {
     $.ajax({
-        url: 'http://localhost:8000/getPost',
+        // url: 'http://localhost:8000/getPost',
+        url: 'https://20.77.44.142/api/getPost',    
         type: 'GET',
         success: function (data) {
             appendPosts(data);
@@ -127,7 +129,8 @@ function getPosts() {
 
 function getUserPosts(userId) {
     $.ajax({
-        url: 'http://localhost:8000/getPost/' + userId,
+        // url: 'http://localhost:8000/getPost/' + userId,
+        url: 'https://20.77.44.142/api/getPost/' + userId,
         type: 'GET',
         success: function (data) {
             appendUserPosts(data);
