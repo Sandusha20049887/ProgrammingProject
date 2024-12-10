@@ -2,8 +2,9 @@
 $(document).ready(function () {
 
     const userId = sessionStorage.getItem("userid");
+    const userName = sessionStorage.getItem("usern");
+    $('#uname').append(userName);
 
-    $('#uname').append(userId);
     if (userId) {
         getPosts();
     } else {
@@ -82,8 +83,8 @@ $(document).ready(function () {
 
 function getPosts() {
     $.ajax({
-        // url: 'http://localhost:8000/getPost',
-        url: 'https://20.0.156.77/getPost',    
+         url: 'http://localhost:8000/getPost',
+        //url: 'https://20.0.156.77/getPost',    
         type: 'GET',
         success: function (data) {
             appendPosts(data);
@@ -96,8 +97,8 @@ function getPosts() {
 
 function getUserPosts(userId) {
     $.ajax({
-        // url: 'http://localhost:8000/getPost/' + userId,
-        url: 'https://20.0.156.77/getPost/' + userId,
+         url: 'http://localhost:8000/getPost/' + userId,
+        //url: 'https://20.0.156.77/getPost/' + userId,
         type: 'GET',
         success: function (data) {
             appendUserPosts(data);
