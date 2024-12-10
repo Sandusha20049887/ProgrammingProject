@@ -125,10 +125,8 @@ function appendPosts(posts) {
              break;
             case "resolved":
                 color = "bg-success"
-                
              break;
             default:
-            // code to be executed if n is different from case 1 and 2
            }
         const postItem = `<div class="post-box list-group-item mt-1">
                             <div class="row">
@@ -152,13 +150,33 @@ function appendPosts(posts) {
 function appendUserPosts(posts) {
     // Clear existing posts
     $('#userposts').empty();
+
+    
     //loop thorugh the records
     posts.forEach(post => {
+
+        var status = post.status;
+        var color = "";
+        switch(status) {
+            case "unresolved":
+               color = "bg-secondary"
+             break;
+            case "progressing":
+                color = "bg-primary"
+             break;
+            case "resolved":
+                color = "bg-success"
+             break;
+            default:
+           }
+
         const postItem = `<div class="list-group-item mt-1" data-id=${post._id}>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-6" style="display: flex; align-items: center;">
                                 <h5>${post.make} ${post.model}</h5>
+                                <span class="${color} status">${status}</span>
                             </div>
+                               
                             <div class="col-6 text-right">
                                 <button class="updatePost btn btn-primary" data-id=${post._id}> Update</button>
                                 <button class="deletePost btn btn-warning" data-id=${post._id}> Delete</button>
