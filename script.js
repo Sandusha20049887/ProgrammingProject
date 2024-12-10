@@ -42,39 +42,6 @@ $(document).ready(function () {
         }
       });
 
-    // $('#addPost').click(function (e) {
-    //     e.preventDefault();
-    //     const today = new Date();
-
-    //     const postDetails = {
-    //         make: $('#make').val(),
-    //         model: $('#model').val(),
-    //         year: $('#year').val(),
-    //         faultDescription: $('#faultDescription').val(),
-    //         garageName: $('#garageName').val(),
-    //         garageAddress: $('#garageAddress').val(),
-    //         contactNo: $('#contactNo').val(),
-    //         status: $('#status').val(),
-    //         userId: userId,
-    //         datePosted: today.toISOString().split('T')[0]
-    //     };
-    //     console.log(postDetails);
-    //     $.ajax({
-    //         url: 'http://localhost:8000/addPost',
-    //         type: 'POST',
-    //         contentType: 'application/json',
-    //         data: JSON.stringify(postDetails),
-    //         success: function (resp) {
-    //             alert(resp);
-    //             getUserPosts(userId);
-    //         },
-    //         error: function (error) {
-    //             console.log('Error:', error);
-    //             alert('Err - Record not added !');
-    //         }
-    //     });
-    // });
-
     $('#logout').click(function () {
         sessionStorage.removeItem("userid");
         window.location.href = "/login.html";
@@ -96,7 +63,7 @@ $(document).ready(function () {
         if (confirm("Are you sure?")) {
             $.ajax({
                 // url: 'http://localhost:8000/deletePost/'+postId,
-                url: 'https://20.77.44.142/api/deletePost/'+postId,
+                url: 'https://20.0.156.77/deletePost/'+postId,
                 type: 'DELETE',
                 contentType: 'application/json',
                 success: function (resp) {
@@ -116,7 +83,7 @@ $(document).ready(function () {
 function getPosts() {
     $.ajax({
         // url: 'http://localhost:8000/getPost',
-        url: 'https://20.77.44.142/api/getPost',    
+        url: 'https://20.0.156.77/getPost',    
         type: 'GET',
         success: function (data) {
             appendPosts(data);
@@ -130,7 +97,7 @@ function getPosts() {
 function getUserPosts(userId) {
     $.ajax({
         // url: 'http://localhost:8000/getPost/' + userId,
-        url: 'https://20.77.44.142/api/getPost/' + userId,
+        url: 'https://20.0.156.77/getPost/' + userId,
         type: 'GET',
         success: function (data) {
             appendUserPosts(data);

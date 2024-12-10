@@ -19,7 +19,7 @@ $(document).ready(function () {
 
         $.ajax({
             //url: 'http://localhost:8000/login',
-            url: 'https://20.77.44.142/api/login',
+            url: 'https://20.0.156.77/login',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(credentials),
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
         $.ajax({
            // url: 'http://localhost:8000/register',
-            url: 'https://20.77.44.142/api/register', 
+            url: 'https://20.0.156.77/register', 
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(credentials),

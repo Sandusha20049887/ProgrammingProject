@@ -49,7 +49,7 @@ $(document).ready(function () {
         console.log(postDetails);
         $.ajax({
             // url: 'http://localhost:8000/addPost',
-            url: 'http://20.77.44.142/api/addPost',
+            url: 'http://20.0.156.77/addPost',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(postDetails),
@@ -83,7 +83,7 @@ $(document).ready(function () {
         console.log(postDetails);
         $.ajax({
             // url: 'http://localhost:8000/updatePost/' + postId,
-            url: 'http://20.77.44.142/api/updatePost/' + postId,
+            url: 'http://20.0.156.77/updatePost/' + postId,
             type: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify(postDetails),
@@ -102,7 +102,7 @@ $(document).ready(function () {
 function getPostDetails(postId) {
     $.ajax({
         // url: 'http://localhost:8000/getPostById/' + postId,
-        url: 'http://20.77.44.142/api/getPostById/' + postId,
+        url: 'http://20.0.156.77/getPostById/' + postId,
         type: 'GET',
         success: function (postDtl) {
             $("#umake").val(postDtl[0].make); 
