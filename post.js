@@ -117,5 +117,6 @@ function getPostDetails(postId) {
         error: function (error) {
             console.log('Error:', error);
         }
+        
     });
 };
