@@ -111,11 +111,34 @@ function getUserPosts(userId) {
 
 function appendPosts(posts) {
     // Clear existing posts
-    $('#posts').empty();
+    //$('#posts').empty();
     //loop thorugh the records
     posts.forEach(post => {
+        var status = post.status;
+        var color = "";
+        switch(status) {
+            case "unresolved":
+               color = "bg-secondary"
+             break;
+            case "progressing":
+                color = "bg-primary"
+             break;
+            case "resolved":
+                color = "bg-success"
+                
+             break;
+            default:
+            // code to be executed if n is different from case 1 and 2
+           }
         const postItem = `<div class="post-box list-group-item mt-1">
-                        <h5>${post.make} ${post.model}</h5>
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5>${post.make} ${post.model}</h5>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <span class="${color} status">${status}</span>
+                                </div>
+                            </div>
                         <p>Year of manufacture : ${post.year}</p>
                         <p>Fault Description : ${post.faultDescription}</p>
                         <p>Garage Name : ${post.garageName}</p>
