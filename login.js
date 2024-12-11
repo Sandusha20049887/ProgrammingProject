@@ -19,27 +19,26 @@ $(document).ready(function () {
                 password: $('#password').val()
             };        
     
-            // $.ajax({
-            //     url: 'http://localhost:8000/login',
-            //     //url: 'https://20.0.156.77/login',
-            //     type: 'POST',
-            //     contentType: 'application/json',
-            //     data: JSON.stringify(credentials),
-            //     success: function (resp) {
-            //         console.log(resp.userId);
-            //         sessionStorage.setItem("userid", resp.userId);
-            //         sessionStorage.setItem("usern", resp.usern);
-            //         window.location.href = "/index.html";
-            //     },
-            //     error: function (error) {
-            //         console.log('Error:', error.responseText);
-            //         alert(error.responseText);
-            //     }
-            // });
+            $.ajax({
+                url: 'http://localhost:8000/login',
+                //url: 'https://20.0.156.77/login',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(credentials),
+                success: function (resp) {
+                    console.log(resp.userId);
+                    sessionStorage.setItem("userid", resp.userId);
+                    sessionStorage.setItem("usern", resp.usern);
+                    window.location.href = "/index.html";
+                },
+                error: function (error) {
+                    console.log('Error:', error.responseText);
+                    alert(error.responseText);
+                }
+            });
         }else{
             alert("Please fill the required fields !")
         }
-        
     });
 
     $('#register').click(function (e) {
