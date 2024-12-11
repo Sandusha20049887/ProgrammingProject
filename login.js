@@ -13,7 +13,12 @@ $(document).ready(function () {
     $('#login').click(function (e) {
 
         const isValid = checkRequiredFields(this); 
-        if (isValid){
+        const validEmail = validateEmail($('#email').val());
+         if (!isValid){
+            alert("Please fill the required fields !")
+        } else if(!validEmail){
+            alert("Please enter a valid Email !")
+        } else{
             const credentials = {
                 email: $('#email').val(),
                 password: $('#password').val()
@@ -36,36 +41,43 @@ $(document).ready(function () {
                     alert(error.responseText);
                 }
             });
-        }else{
-            alert("Please fill the required fields !")
+            
         }
     });
 
     $('#register').click(function (e) {
 
-        const credentials = {
-            name: $('#name').val(),
-            email: $('#emailregister').val(),
-            password: $('#passwordregister').val()
-        };
-
-        $.ajax({
-            url: 'http://localhost:8000/register',
-            //url: 'https://20.0.156.77/register', 
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(credentials),
-            success: function (resp) {
-                sessionStorage.setItem("userid", resp.userId);
-                sessionStorage.setItem("usern", resp.usern);
-                alert('Successfully registered!');
-                window.location.href = "/index.html";
-            },
-            error: function (error) {
-                alert(error.responseText);
-                console.log('Error:', error.responseText);
-            }
-        });
+        const isValid = checkRequiredFields(this); 
+        const validEmail = validateEmail($('#emailregister').val());
+         if (!isValid){
+            alert("Please fill the required fields !")
+        } else if(!validEmail){
+            alert("Please enter a valid Email !")
+        } else{
+            const credentials = {
+                name: $('#name').val(),
+                email: $('#emailregister').val(),
+                password: $('#passwordregister').val()
+            };
+    
+            $.ajax({
+                url: 'http://localhost:8000/register',
+                //url: 'https://20.0.156.77/register', 
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(credentials),
+                success: function (resp) {
+                    sessionStorage.setItem("userid", resp.userId);
+                    sessionStorage.setItem("usern", resp.usern);
+                    alert('Successfully registered!');
+                    window.location.href = "/index.html";
+                },
+                error: function (error) {
+                    alert(error.responseText);
+                    console.log('Error:', error.responseText);
+                }
+            });
+        }
     });
 })
 
