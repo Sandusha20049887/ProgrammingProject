@@ -17,7 +17,7 @@ $(document).ready(function () {
     $('#userPost').click(function () {
         window.location.href = "/userPost.html";
     });
-    
+
     const urlParams = new URLSearchParams(window.location.search);
     postId = urlParams.get('postid')
 
@@ -32,86 +32,97 @@ $(document).ready(function () {
 
     $('#addPost').click(function (e) {
         e.preventDefault();
-        const today = new Date();
 
-        const postDetails = {
-            make: $('#make').val(),
-            model: $('#model').val(),
-            year: $('#year').val(),
-            faultDescription: $('#faultDescription').val(),
-            garageName: $('#garageName').val(),
-            garageAddress: $('#garageAddress').val(),
-            contactNo: $('#contactNo').val(),
-            status: $('#status').val(),
-            userId: userId,
-            datePosted: today.toISOString().split('T')[0]
-        };
-        console.log(postDetails);
-        $.ajax({
-             url: 'http://localhost:8000/addPost',
-            //url: 'https://20.0.156.77/addPost',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(postDetails),
-            success: function (resp) {
-                alert(resp);
-                //getUserPosts(userId);
-            },
-            error: function (error) {
-                console.log('Error:', error);
-                alert('Err - Record not added !');
-            }
-        });
+        const isValid = checkRequiredFields(this);
+        if (!isValid) {
+            alert("Please fill the required fields !")
+        } else {
+            const today = new Date();
+
+            const postDetails = {
+                make: $('#make').val(),
+                model: $('#model').val(),
+                year: $('#year').val(),
+                faultDescription: $('#faultDescription').val(),
+                garageName: $('#garageName').val(),
+                garageAddress: $('#garageAddress').val(),
+                contactNo: $('#contactNo').val(),
+                status: $('#status').val(),
+                userId: userId,
+                datePosted: today.toISOString().split('T')[0]
+            };
+            console.log(postDetails);
+            $.ajax({
+                url: 'http://localhost:8000/addPost',
+                //url: 'https://20.0.156.77/addPost',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(postDetails),
+                success: function (resp) {
+                    alert(resp);
+                    //getUserPosts(userId);
+                },
+                error: function (error) {
+                    console.log('Error:', error);
+                    alert('Record not added !');
+                }
+            });
+        }
     });
 
     $('#updatePost').click(function (e) {
         e.preventDefault();
         //const postId = $('#postId').val();
 
-        const postDetails = {
-            _id: postId,
-            make: $('#umake').val(),
-            model: $('#umodel').val(),
-            year: $('#uyear').val(),
-            faultDescription: $('#ufaultDescription').val(),
-            garageName: $('#ugarageName').val(),
-            garageAddress: $('#ugarageAddress').val(),
-            contactNo: $('#ucontactNo').val(),
-            status: $('#ustatus').val(),
-            userId: userId
-        };
-        console.log(postDetails);
-        $.ajax({
-            // url: 'http://localhost:8000/updatePost/' + postId,
-            url: 'https://20.0.156.77/updatePost/' + postId,
-            type: 'PUT',
-            contentType: 'application/json',
-            data: JSON.stringify(postDetails),
-            success: function (resp) {
-                alert(resp);
-                //getUserPosts(userId);
-            },
-            error: function (error) {
-                console.log('Error:', error);
-                alert('Err - Record not added !');
-            }
-        });
+        const isValid = checkRequiredFields(this);
+        if (!isValid) {
+            alert("Please fill the required fields !")
+        } else {
+            const postDetails = {
+                _id: postId,
+                make: $('#umake').val(),
+                model: $('#umodel').val(),
+                year: $('#uyear').val(),
+                faultDescription: $('#ufaultDescription').val(),
+                garageName: $('#ugarageName').val(),
+                garageAddress: $('#ugarageAddress').val(),
+                contactNo: $('#ucontactNo').val(),
+                status: $('#ustatus').val(),
+                userId: userId
+            };
+            console.log(postDetails);
+            $.ajax({
+                // url: 'http://localhost:8000/updatePost/' + postId,
+                url: 'https://20.0.156.77/updatePost/' + postId,
+                type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(postDetails),
+                success: function (resp) {
+                    alert(resp);
+                    //getUserPosts(userId);
+                },
+                error: function (error) {
+                    console.log('Error:', error);
+                    alert('Err - Record not added !');
+                }
+            });
+        }
     });
 });
 
 function getPostDetails(postId) {
     $.ajax({
-         url: 'http://localhost:8000/getPostById/' + postId,
+        url: 'http://localhost:8000/getPostById/' + postId,
         //url: 'https://20.0.156.77/getPostById/' + postId,
         type: 'GET',
         success: function (postDtl) {
-            $("#umake").val(postDtl[0].make); 
-            $("#umodel").val(postDtl[0].model); 
-            $("#uyear").val(postDtl[0].year); 
-            $("#ufaultDescription").val(postDtl[0].faultDescription); 
+            $("#umake").val(postDtl[0].make);
+            $("#umodel").val(postDtl[0].model);
+            $("#uyear").val(postDtl[0].year);
+            $("#ufaultDescription").val(postDtl[0].faultDescription);
             $("#ugarageName").val(postDtl[0].garageName);
-            $("#ugarageAddress").val(postDtl[0].garageAddress); 
-            $("#ucontactNo").val(postDtl[0].contactNo); 
+            $("#ugarageAddress").val(postDtl[0].garageAddress);
+            $("#ucontactNo").val(postDtl[0].contactNo);
             $("#ustatus").val(postDtl[0].status);
         },
         error: function (error) {
