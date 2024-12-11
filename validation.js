@@ -1,12 +1,14 @@
 // function to check empty fields
 
-function checkRequiredFields(form) {
+function checkRequiredFields(element) {
     let isValid = true;
-
-    $(form).find(':input[required]').each(function () {
+    var form = element.closest('form')
+    $(form).find('input[required], select[required]').each(function(){
+        //console.log($(this).val().trim());
         if ($(this).val().trim() === '') {
             isValid = false;
-            return isValid
+            return false;
         }
     })
+    return isValid
 }
