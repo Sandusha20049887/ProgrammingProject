@@ -53,8 +53,8 @@ $(document).ready(function () {
             };
             console.log(postDetails);
             $.ajax({
-                url: 'http://localhost:8000/addPost',
-                //url: 'https://20.0.156.77/addPost',
+                //url: 'http://localhost:8000/addPost',
+                url: 'https://smarlk.uksouth.cloudapp.azure.com/addPost',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(postDetails),
@@ -93,7 +93,7 @@ $(document).ready(function () {
             console.log(postDetails);
             $.ajax({
                 // url: 'http://localhost:8000/updatePost/' + postId,
-                url: 'https://20.0.156.77/updatePost/' + postId,
+                url: 'https://smarlk.uksouth.cloudapp.azure.com/updatePost/' + postId,
                 type: 'PUT',
                 contentType: 'application/json',
                 data: JSON.stringify(postDetails),
@@ -112,8 +112,8 @@ $(document).ready(function () {
 
 function getPostDetails(postId) {
     $.ajax({
-        url: 'http://localhost:8000/getPostById/' + postId,
-        //url: 'https://20.0.156.77/getPostById/' + postId,
+        //url: 'http://localhost:8000/getPostById/' + postId,
+        url: 'https://smarlk.uksouth.cloudapp.azure.com/getPostById/' + postId,
         type: 'GET',
         success: function (postDtl) {
             $("#umake").val(postDtl[0].make);

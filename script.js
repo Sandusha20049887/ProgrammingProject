@@ -64,7 +64,7 @@ $(document).ready(function () {
         if (confirm("Are you sure?")) {
             $.ajax({
                 // url: 'http://localhost:8000/deletePost/'+postId,
-                url: 'https://20.0.156.77/deletePost/'+postId,
+                url: 'https://smarlk.uksouth.cloudapp.azure.com/deletePost/'+postId,
                 type: 'DELETE',
                 contentType: 'application/json',
                 success: function (resp) {
@@ -83,8 +83,8 @@ $(document).ready(function () {
 
 function getPosts() {
     $.ajax({
-         url: 'http://localhost:8000/getPost',
-        //url: 'https://20.0.156.77/getPost',    
+        //url: 'http://localhost:8000/getPost',
+        url: 'https://smarlk.uksouth.cloudapp.azure.com/getPost',    
         type: 'GET',
         success: function (data) {
             appendPosts(data);
@@ -97,8 +97,8 @@ function getPosts() {
 
 function getUserPosts(userId) {
     $.ajax({
-         url: 'http://localhost:8000/getPost/' + userId,
-        //url: 'https://20.0.156.77/getPost/' + userId,
+        //url: 'http://localhost:8000/getPost/' + userId,
+        url: 'https://smarlk.uksouth.cloudapp.azure.com/getPost/' + userId,
         type: 'GET',
         success: function (data) {
             appendUserPosts(data);

@@ -25,8 +25,8 @@ $(document).ready(function () {
             };        
     
             $.ajax({
-                url: 'http://localhost:8000/login',
-                //url: 'https://20.0.156.77/login',
+                //url: 'http://localhost:8000/login',
+                url: 'https://smarlk.uksouth.cloudapp.azure.com/login',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(credentials),
@@ -61,8 +61,8 @@ $(document).ready(function () {
             };
     
             $.ajax({
-                url: 'http://localhost:8000/register',
-                //url: 'https://20.0.156.77/register', 
+                //url: 'http://localhost:8000/register',
+                url: 'https://smarlk.uksouth.cloudapp.azure.com/register', 
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(credentials),
