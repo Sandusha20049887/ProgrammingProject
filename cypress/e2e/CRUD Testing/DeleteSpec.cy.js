@@ -16,5 +16,10 @@ describe('Delete Post Flow', () => {
         cy.get('.list-group-item').first().within(() => { 
             cy.get('.deletePost').click();
         });
+
+        // verify alert text
+           cy.on('window:alert', (str) => { 
+            expect(str).to.equal('Post deleted!'); 
+       });
     });
 });
