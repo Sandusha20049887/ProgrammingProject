@@ -17,6 +17,9 @@ describe('Update Post Flow', () => {
             cy.get('.updatePost').click();
         });
 
+        // wait to fill the fetched values on fields
+        cy.wait(500);
+
         // Fill in only specific fields in Update Form 
         cy.url().should('include', '/addUpdatePost'); 
         cy.get('#ufaultDescription').clear().type('Battery issue'); 
