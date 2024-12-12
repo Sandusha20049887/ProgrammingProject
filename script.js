@@ -114,7 +114,7 @@ function appendPosts(posts) {
     //$('#posts').empty();
     //loop thorugh the records
 
-    posts.sort((a, b) => new Date(a.datePosted) - new Date(b.datePosted));
+    //posts.sort((a, b) => new Date(a.datePosted) - new Date(b.datePosted));
 
     posts.forEach(post => {
         var status = post.status;
