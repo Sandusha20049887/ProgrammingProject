@@ -23,3 +23,7 @@ Test scripts are in frontend repository
 Clone the repo - git clone https://github.com/Sandusha20049887/ProgrammingProject.git
 Install node modules - run npm install
 Launch cypress - run npx cypress open
+
+## References
+Referred to medium article for Express.js and mongodb <pre>
+https://medium.com/techvblogs/build-crud-api-with-node-js-express-and-mongodb-e3aa58da3915</pre>
