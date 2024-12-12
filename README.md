@@ -33,3 +33,14 @@ Launch cypress - run npx cypress open
 ## References
 Referred to medium article for Express.js and mongodb <pre>
 https://medium.com/techvblogs/build-crud-api-with-node-js-express-and-mongodb-e3aa58da3915</pre>
+
+Email validation regex 
+<pre>https://stackoverflow.com/questions/2507030/how-can-one-use-jquery-to-validate-email-addresses</pre>
+
+body-parser
+<pre>https://expressjs.com/en/5x/api.html</pre>
+
+Cypress end to end to testing reference
+<pre>https://www.browserstack.com/guide/cypress-end-to-end-testing</pre>
+
+
