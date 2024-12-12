@@ -61,6 +61,7 @@ $(document).ready(function () {
                 success: function (resp) {
                     alert(resp);
                     //getUserPosts(userId);
+                    window.location.replace("/index.html");
                 },
                 error: function (error) {
                     console.log('Error:', error);
@@ -100,6 +101,7 @@ $(document).ready(function () {
                 success: function (resp) {
                     alert(resp);
                     //getUserPosts(userId);
+                    window.location.replace("/userPost.html");
                 },
                 error: function (error) {
                     console.log('Error:', error);

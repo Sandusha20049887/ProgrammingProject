@@ -113,9 +113,16 @@ function appendPosts(posts) {
     // Clear existing posts
     //$('#posts').empty();
     //loop thorugh the records
+
+    posts.sort((a, b) => new Date(a.datePosted) - new Date(b.datePosted));
+
     posts.forEach(post => {
         var status = post.status;
         var color = "";
+
+        var date = new Date(post.datePosted); 
+        var formattedDate =   date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+
         switch(status) {
             case "unresolved":
                color = "bg-secondary"
@@ -141,7 +148,9 @@ function appendPosts(posts) {
                         <p>Fault Description : ${post.faultDescription}</p>
                         <p>Garage Name : ${post.garageName}</p>
                         <p>Address : ${post.garageAddress}</p>
-                        <p>Contact No : ${post.contactNo}</p>
+                        <p>Contact No : ${post.contactNo}
+                         <span style="float:right; font-size: small;font-weight: bold;">${formattedDate}</span>
+                        </p>
                     </div>`;
         $('#posts').append(postItem);
     });
@@ -150,13 +159,16 @@ function appendPosts(posts) {
 function appendUserPosts(posts) {
     // Clear existing posts
     $('#userposts').empty();
-
     
     //loop thorugh the records
     posts.forEach(post => {
 
         var status = post.status;
         var color = "";
+
+        var date = new Date(post.datePosted); 
+        var formattedDate =   date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+        
         switch(status) {
             case "unresolved":
                color = "bg-secondary"
@@ -186,7 +198,9 @@ function appendUserPosts(posts) {
                         <p>Fault Description : ${post.faultDescription}</p>
                         <p>Garage Name : ${post.garageName}</p>
                         <p>Address : ${post.garageAddress}</p>
-                        <p>Contact No : ${post.contactNo}</p>
+                        <p>Contact No : ${post.contactNo}
+                         <span style="float:right; font-size: small;font-weight: bold;">${formattedDate}</span>
+                        </p>
                     </div>`;
         $('#userposts').append(postItem);
     });
