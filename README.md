@@ -34,6 +34,11 @@ Launch cypress - run npx cypress open
 Referred to medium article for Express.js and mongodb <pre>
 https://medium.com/techvblogs/build-crud-api-with-node-js-express-and-mongodb-e3aa58da3915</pre>
 
+filter function to search in jQuery
+<pre>
+  https://stackoverflow.com/questions/52592173/search-for-an-item-in-a-list-using-jquery-filter
+</pre>
+
 Email validation regex 
 <pre>https://stackoverflow.com/questions/2507030/how-can-one-use-jquery-to-validate-email-addresses</pre>
 
