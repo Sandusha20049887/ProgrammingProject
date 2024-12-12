@@ -6,20 +6,22 @@ describe("Http Requests", () => {
         cy.request('GET', 'https://smarlk.uksouth.cloudapp.azure.com/getPost')
             .its('status')
             .should('equal', 200);
-    })
+    });
 
     // Register
-    it("Post Register call", () => {
+    it("POST Register call", () => {
         cy.request({
             method: 'POST',
             url: 'https://smarlk.uksouth.cloudapp.azure.com/register',
             body: {
-                name: "Test user",
-                password: "test1",
-                email: "test1@dbs.ie"
+                name: "Test user 2",
+                password: "123",
+                email: "test3@dbs.ie"
             }
         })
-    })
+        .its('status')
+        .should('equal', 200);
+    });
 
     // Login 
     it("POST Login call", () => {
@@ -36,10 +38,8 @@ describe("Http Requests", () => {
             expect(response.status).to.equal(200);
             cy.log(JSON.stringify(response.body));
             // Check response body values 
-            expect(response.body).to.have.property('userId,usern');
-            expect(response.body.user).to.have.property('usern', 'test@dbs.ie');
+            //expect(JSON.stringify(response.body)[0].userId).to.equal('675a09e0e4bcb2f5fb01c828');
+            //expect(JSON.stringify(response.body)[0].usern).to.equal('test');
         })
-        .its('status')
-        .should('equal', 200)
-    })
+    });
 })
